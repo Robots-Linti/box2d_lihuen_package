@@ -1,0 +1,35 @@
+--- a/setup.py
++++ b/setup.py
+@@ -135,7 +135,7 @@
+     extra_args=['-I.', '-Wno-unused']
+ 
+ pybox2d_extension = \
+-    Extension('Box2D._Box2D', box2d_source_files, extra_compile_args=extra_args, language='c++')
++    Extension('Box2D_23._Box2D', box2d_source_files, extra_compile_args=extra_args, language='c++')
+ 
+ LONG_DESCRIPTION = \
+ """ 2D physics library Box2D %s for usage in Python.
+@@ -163,7 +163,7 @@
+ write_init()
+ 
+ setup_dict = dict(
+-    name             = "Box2D",
++    name             = "Box2D_23",
+     version          = version_str,
+     author           = "Ken Lauer",
+     author_email     = "sirkne at gmail dot com",
+@@ -172,10 +172,10 @@
+     url              ="http://pybox2d.googlecode.com/",
+     long_description = LONG_DESCRIPTION,
+     classifiers      = CLASSIFIERS,
+-    packages         = ['Box2D', 'Box2D.b2'],
+-    package_dir      = {'Box2D': library_path, 
+-                        'Box2D.b2': os.path.join(library_path, 'b2'),
+-                        'Box2D.tests' : 'tests'},
++    packages         = ['Box2D_23', 'Box2D_23.b2'],
++    package_dir      = {'Box2D_23': library_path, 
++                        'Box2D_23.b2': os.path.join(library_path, 'b2'),
++                        'Box2D_23.tests' : 'tests'},
+     test_suite       = 'tests',
+     options          = { 'build_ext': { 'swig_opts' : swig_arguments },
+                          'egg_info' : { 'egg_base' : library_base },

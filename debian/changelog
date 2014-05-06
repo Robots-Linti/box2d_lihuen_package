@@ -1,0 +1,12 @@
+python-box2d-23 (2.3.1) UNRELEASED; urgency=low
+
+  * Initial release
+
+ -- Soporte Lihuen <soportelihuen@linti.unlp.edu.ar>  Tue, 06 May 2014 13:54:54 -0300
+
+python-box2d (2.0.2+svn20100109.244-1) unstable; urgency=low
+
+  * Initial release. Closes: 524710.
+
+ -- Luke Faraone <luke@faraone.cc>  Sun, 04 Jul 2010 15:01:24 -0700
+

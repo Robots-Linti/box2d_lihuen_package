@@ -1,0 +1,3 @@
+version=3
+opts=dversionmangle=s/\~// \
+http://googlecode.debian.net/p/pybox2d/Box2D-(\d).(\d).(\db\d)\.zip

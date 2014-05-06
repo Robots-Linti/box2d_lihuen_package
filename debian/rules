@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+DEB_BUILDDIR = build
+DEB_PYTHON_SYSTEM = pysupport
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+include /usr/share/cdbs/1/rules/utils.mk
+
+
+# Don't compress example Python files. Or txts, for that matter.
+DEB_COMPRESS_EXCLUDE = .py .txt .ttf .xml .glade pickle_example_web
+
+# Path to the debian directory
+DEBIAN_DIR := $(shell echo ${MAKEFILE_LIST} | awk '{print $$1}' | xargs dirname )
+UPSTREAM_VERSION ?=$(shell uscan --dehs | sed -n 's/.*<upstream-version>\(.*\)<\/upstream-version>.*/\1/p')
+
+CURRENT_TREEISH =$(shell dpkg-parsechangelog | sed -rne 's,^Version: .*svn.{9}([^-]+).*,\1,p')
+CURVER=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([^-]+).*,\1,p')
+
+PACKAGE := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
+SOURCE_DIR=python-box2d-$(CURVER)
+TARBALL=python-box2d_$(CURVER).orig.tar.gz
+
+$(SOURCE_DIR):
+	svn co http://pybox2d.googlecode.com/svn/trunk/ $(SOURCE_DIR).temp
+	cd $(SOURCE_DIR).temp && svn export -r ${CURRENT_TREEISH} . ../$(SOURCE_DIR)
+
+$(TARBALL): $(SOURCE_DIR)
+	tar czvf $(TARBALL) $(SOURCE_DIR)
+
+get-orig-source: $(TARBALL)
+	rm -rf $(SOURCE_DIR) $(SOURCE_DIR).temp
+
+clean::
+	rm -f Box2D.py Box2D/Box2D_wrap.cpp Box2D/Box2D_wrap.h
+	rm -f distribute-0.6.34*
+	rm -rf build/ Box2D.egg-info/ library/Box2D_23.egg-info
