@@ -14,7 +14,7 @@ Standards-Version: 3.9.0
 Homepage: http://code.google.com/p/pybox2d/
 
 Package: python-box2d-23
-Architecture: any
+Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Provides: ${python:Provides}
 Description: Python Bindings for the 2D Physics Engine Box2D
