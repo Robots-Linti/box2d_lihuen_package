@@ -30,7 +30,7 @@ Package: python-box2d-23-doc
 Section: doc
 Architecture: all
 Depends: python-box2d, python-pygame, ${misc:Depends}
-Description: Python Bindings for the 2D Physics Engine Box2D - documentation
+Description: Python Bindings for the 2D physics Engine Box2D - documentation
  2D rigid body simulation library for games. Programmers can use it in their 
  games to make objects move in believable ways and make the world seem more 
  interactive. From the game's point of view a physics engine is just a system 
