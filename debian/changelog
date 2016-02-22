@@ -1,3 +1,9 @@
+python-box2d-23 (2.3.1-lihuen3) UNRELEASED; urgency=medium
+
+  *Correcion de tilde 
+
+ -- Soporte Lihuen <soportelihuenn@linti.unlp.edu.ar>  Fri, 19 Feb 2016 17:27:32 -0300
+
 python-box2d-23 (2.3.1-lihuen2) unstable; urgency=low
 
   * Initial release
